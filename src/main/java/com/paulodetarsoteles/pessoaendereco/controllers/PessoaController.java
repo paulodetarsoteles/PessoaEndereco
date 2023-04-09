@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +40,17 @@ public class PessoaController {
 	@PostMapping 
 	public ResponseEntity<Pessoa> insert(@RequestBody Pessoa pessoa){
 		Pessoa obj = service.insert(pessoa);
-		URI result = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getPessoaId()).toUri(); 
+		URI result = ServletUriComponentsBuilder
+				.fromCurrentRequest()
+				.path("/{id}")
+				.buildAndExpand(obj.getPessoaId())
+				.toUri(); 
 		return ResponseEntity.created(result).body(obj);  
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		service.delete(id);
+		return ResponseEntity.noContent().build(); 
 	}
 }
