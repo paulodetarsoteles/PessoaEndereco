@@ -3,8 +3,6 @@ package com.paulodetarsoteles.pessoaendereco.models;
 import java.io.Serializable;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +26,6 @@ public class Endereco implements Serializable{
 	private String cidade; 
 	private Boolean principal; 
 	
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "pessoaId")
 	private Pessoa pessoa; 
@@ -95,8 +92,8 @@ public class Endereco implements Serializable{
 		this.principal = principal;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+	public Long getPessoa() {
+		return pessoa.getPessoaId();
 	}
 
 	public void setPessoa(Pessoa pessoa) {

@@ -28,8 +28,7 @@ public class PessoaController {
 	@GetMapping
 	public ResponseEntity<List<Pessoa>> findAll(){
 		List<Pessoa> result = service.findAll(); 
-		//return ResponseEntity.ok(result);
-		return ResponseEntity.ok().body(result); 
+		return ResponseEntity.ok(result);
 	}
 	
 	@GetMapping(value = "/{id}")
