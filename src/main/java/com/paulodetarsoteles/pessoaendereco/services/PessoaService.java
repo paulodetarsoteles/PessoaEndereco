@@ -23,4 +23,8 @@ public class PessoaService {
 		Optional<Pessoa> result = repository.findById(id);
 		return result.get(); 
 	}
+	
+	public Pessoa insert(Pessoa pessoa) {
+		return repository.save(pessoa); 
+	}
 }

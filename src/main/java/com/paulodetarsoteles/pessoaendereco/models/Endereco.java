@@ -26,6 +26,7 @@ public class Endereco implements Serializable{
 	private String cep; 
 	private Integer numero; 
 	private String cidade; 
+	private Boolean principal; 
 	
 	@JsonIgnore
 	@ManyToOne
@@ -35,13 +36,14 @@ public class Endereco implements Serializable{
 	public Endereco() {
 	}
 
-	public Endereco(Long enderecoId, String logradouro, String cep, Integer numero, String cidade, Pessoa pessoa) {
+	public Endereco(Long enderecoId, String logradouro, String cep, Integer numero, String cidade, Boolean principal, Pessoa pessoa) {
 		super();
 		this.enderecoId = enderecoId;
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.numero = numero;
 		this.cidade = cidade;
+		this.principal = principal; 
 		this.pessoa = pessoa;
 	}
 
@@ -83,6 +85,14 @@ public class Endereco implements Serializable{
 
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+
+	public Boolean getPrincipal() {
+		return principal;
+	}
+
+	public void setPrincipal(Boolean principal) {
+		this.principal = principal;
 	}
 
 	public Pessoa getPessoa() {

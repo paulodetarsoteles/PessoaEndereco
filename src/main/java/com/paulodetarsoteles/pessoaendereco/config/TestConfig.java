@@ -31,12 +31,12 @@ public class TestConfig implements CommandLineRunner {
 		Pessoa p2 = new Pessoa(null, "Rita", Instant.parse("1987-01-08T00:00:00Z"));
 		Pessoa p3 = new Pessoa(null, "Julia", Instant.parse("2009-01-17T00:00:00Z"));
 		
-		Endereco e1 = new Endereco(null, "Rua Jota", "60831080", 610, "Fortaleza", p1);
-		Endereco e2 = new Endereco(null, "Av. Bezerra", "60325000", 810, "Fortaleza", p1);
-		Endereco e3 = new Endereco(null, "Rua Costa Barros", "60119000", 915, "Fortaleza", p1);
-		Endereco e4 = new Endereco(null, "Rua Amadeu Furtado", "60355003", 905, "Fortaleza", p2);
-		Endereco e5 = new Endereco(null, "Rua Ajurana", "60325900", 26, "Fortaleza", p2);
-		Endereco e6 = new Endereco(null, "Rua Padre Guerra", "60300001", 706, "Aquiraz", p3);
+		Endereco e1 = new Endereco(null, "Rua Jota", "60831080", 610, "Fortaleza", true, p1);
+		Endereco e2 = new Endereco(null, "Av. Bezerra", "60325000", 810, "Fortaleza", false, p1);
+		Endereco e3 = new Endereco(null, "Rua Costa Barros", "60119000", 915, "Fortaleza", false, p1);
+		Endereco e4 = new Endereco(null, "Rua Amadeu Furtado", "60355003", 905, "Fortaleza", true, p2);
+		Endereco e5 = new Endereco(null, "Rua Ajurana", "60325900", 26, "Fortaleza", true, p2);
+		Endereco e6 = new Endereco(null, "Rua Padre Guerra", "60300001", 706, "Aquiraz", true, p3);
 		
 		pessoaRepository.saveAll(Arrays.asList(p1, p2, p3)); 
 		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3, e4, e5, e6)); 
