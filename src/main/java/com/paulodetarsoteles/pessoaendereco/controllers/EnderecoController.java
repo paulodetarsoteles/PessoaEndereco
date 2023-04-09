@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.paulodetarsoteles.pessoaendereco.models.Pessoa;
-import com.paulodetarsoteles.pessoaendereco.services.PessoaService;
+import com.paulodetarsoteles.pessoaendereco.models.Endereco;
+import com.paulodetarsoteles.pessoaendereco.services.EnderecoService;
 
 @RestController
-@RequestMapping("/pessoas")
-public class PessoaController {
+@RequestMapping("/enderecos")
+public class EnderecoController {
 	
 	@Autowired
-	private PessoaService service; 
+	private EnderecoService service; 
 
 	@GetMapping
-	public ResponseEntity<List<Pessoa>> findAll(){
-		List<Pessoa> result = service.findAll(); 
+	public ResponseEntity<List<Endereco>> findAll(){
+		List<Endereco> result = service.findAll(); 
 		//return ResponseEntity.ok(result);
 		return ResponseEntity.ok().body(result); 
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Pessoa> findById(@PathVariable Long id){
-		Pessoa result = service.findById(id); 
+	public ResponseEntity<Endereco> findById(@PathVariable Long id){
+		Endereco result = service.findById(id); 
 		return ResponseEntity.ok().body(result); 
 	}
 }
