@@ -28,6 +28,17 @@ public class PessoaService {
 		return repository.save(pessoa); 
 	}
 	
+	public Pessoa update(Long id, Pessoa pessoa) {
+		Pessoa result = repository.getReferenceById(id); 
+		updateData(result, pessoa); 
+		return repository.save(result); 
+	}
+	
+	private void updateData(Pessoa pessoa, Pessoa result) {
+		pessoa.setNome(result.getNome());
+		pessoa.setDataNascimento(result.getDataNascimento());
+	}
+	
 	public void delete(Long id) {
 		repository.deleteById(id);
 	}
