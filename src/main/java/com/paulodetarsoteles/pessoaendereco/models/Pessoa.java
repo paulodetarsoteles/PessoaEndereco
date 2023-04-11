@@ -21,7 +21,7 @@ public class Pessoa implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long pessoaId;
+	public Long pessoaId;
 	private String nome;
 	private Instant dataNascimento;
 	

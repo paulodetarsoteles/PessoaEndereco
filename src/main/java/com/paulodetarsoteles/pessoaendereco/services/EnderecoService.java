@@ -30,6 +30,14 @@ public class EnderecoService {
 		return result.orElseThrow(() -> new ServicesExceptions(id)); 
 	}
 	
+	public List<Endereco> findPrincipal(Long id) {
+		List<Endereco> result = repository.findAll().stream()
+				.filter(e -> e.principal == true)
+				.filter(e -> e.pessoa.pessoaId == id)
+				.toList();
+		return result; 
+	}
+	
 	public Endereco insert(Endereco endereco) {
 		return repository.save(endereco); 
 	}

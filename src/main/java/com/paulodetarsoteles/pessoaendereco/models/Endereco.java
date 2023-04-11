@@ -24,11 +24,11 @@ public class Endereco implements Serializable{
 	private String cep; 
 	private Integer numero; 
 	private String cidade; 
-	private Boolean principal; 
+	public Boolean principal; 
 	
 	@ManyToOne
 	@JoinColumn(name = "pessoaId")
-	private Pessoa pessoa; 
+	public Pessoa pessoa; 
 	
 	public Endereco() {
 	}
